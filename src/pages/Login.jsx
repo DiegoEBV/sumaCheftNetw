@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { toast } = useToast();
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -60,7 +61,7 @@ const Login = () => {
                     </form>
                     <p className="text-sm text-center text-gray-400">
                         ¿No tienes una cuenta?{' '}
-                        <button onClick={handleLogin} className="font-medium text-purple-400 hover:underline">
+                        <button onClick={() => navigate('/register')} className="font-medium text-purple-400 hover:underline">
                             Regístrate
                         </button>
                     </p>

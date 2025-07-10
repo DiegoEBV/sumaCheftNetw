@@ -7,6 +7,7 @@ import Feed from '@/pages/Feed';
 import Perfil from '@/pages/Perfil';
 import { useAuth } from '@/hooks/useAuth';
 import Loader from '@/components/Loader';
+import Register from '@/pages/Register';
 
 const AppRoutes = () => {
   const { user, loading } = useAuth();
@@ -20,6 +21,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={user ? <Navigate to="/feed" /> : <Login />} />
+      <Route path="/register" element={user ? <Navigate to="/feed" /> : <Register />} />
       
       {/* Protected Routes */}
       <Route path="/feed" element={user ? <Feed /> : <Navigate to="/login" />} />
